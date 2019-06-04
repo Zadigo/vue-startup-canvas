@@ -1,6 +1,13 @@
 # FROM node:lts-alpine
 FROM ubuntu
 
+# Explicitly install node/npm
+# RUN apt-get update && apt-get install curl
+
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+
+RUN apt update && apt install nodejs
+
 # install simple http server for serving static content
 RUN npm install -g http-server
 
@@ -9,13 +16,6 @@ WORKDIR /app
 # Copy both package.json 
 # and package-lock.json
 COPY package*.json ./
-
-# Explicitly install node/npm
-# RUN apt-get update && apt-get install curl
-
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-
-RUN apt update && apt install nodejs
 
 
 # Install dependencies
