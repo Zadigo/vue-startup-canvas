@@ -1,11 +1,11 @@
 FROM node:lts-alpine
 
+RUN apt-get install bash
+
 # install simple http server for serving static content
 RUN npm install -g http-server
 
 WORKDIR /app
-
-SHELL [ "/bin/bash" ]
 
 # Copy both package.json 
 # and package-lock.json
