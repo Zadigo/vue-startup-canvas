@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 
-RUN apk install bash
+RUN apk add bash
 
 # install simple http server for serving static content
 RUN npm install -g http-server
@@ -16,7 +16,7 @@ COPY package*.json ./
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
-RUN apt-get update && apt-get install -y nodejs
+RUN apk update && apk add -y nodejs
 
 
 # Install dependencies
