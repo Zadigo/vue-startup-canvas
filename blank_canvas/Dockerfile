@@ -12,11 +12,11 @@ WORKDIR /app
 COPY package*.json ./
 
 # Explicitly install node/npm
-# RUN apt-get update && apt-get install -y curl
+RUN apk update && apk add curl
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
-RUN apk update && apk add -y nodejs
+RUN apk update && apk add nodejs
 
 
 # Install dependencies
