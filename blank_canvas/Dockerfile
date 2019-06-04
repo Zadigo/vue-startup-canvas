@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 
-RUN apt-get install bash
+RUN apk install bash
 
 # install simple http server for serving static content
 RUN npm install -g http-server
