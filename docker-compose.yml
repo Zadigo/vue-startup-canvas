@@ -2,6 +2,5 @@ version: '3'
 
 services:
   vue_app:
-    - build: ./blank_canvas
+    build: ./blank_canvas
   container_name: vue_application
-  
