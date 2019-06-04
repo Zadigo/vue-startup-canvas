@@ -5,6 +5,8 @@ RUN npm install -g http-server
 
 WORKDIR /app
 
+SHELL [ "/bin/bash" ]
+
 # Copy both package.json 
 # and package-lock.json
 COPY package*.json ./
