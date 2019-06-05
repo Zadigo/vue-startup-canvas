@@ -22,8 +22,8 @@
 
     <link rel="alternate" href="canvas.com" hreflang="fr-fr" />
 
-    <link rel="stylesheet" href="./static/extended_materialize.css">
-    <link rel="stylesheet" href="./static/hero.css">
+    <link rel="stylesheet" href="<%= BASE_URL %>extended_materialize.css">
+    <link rel="stylesheet" href="<%= BASE_URL %>hero.css">
   </head>
   <body>
     <div id="app"></div>
@@ -57,6 +57,8 @@
         $('.collapsible').collapsible();
         // Tabs
         $('.tabs').tabs();
+        // Scrollspy
+        $('.scrollspy').scrollSpy();
       });
     </script>
   </body>

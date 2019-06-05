@@ -8,16 +8,17 @@
                     <h5>Contact Us For Booking</h5>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus sed praesentium delectus.
                         Sit, mollitia
-                        quo. Veniam repellat voluptas ipsum doloremque?</p>
+                        quo. Veniam repellat voluptas ipsum doloremque?
+                    </p>
                 </div>
-                <ul class="collection with-header">
+                <!-- <ul class="collection with-header">
                     <li class="collection-header">
                         <h4>Location</h4>
                     </li>
                     <li class="collection-item">Travelville Agency</li>
                     <li class="collection-item">555 Beach rd, Suite 33</li>
                     <li class="collection-item">Miami FL, 55555</li>
-                </ul>
+                </ul> -->
             </div>
 
             <div class="col s12 m6">
@@ -40,7 +41,6 @@
             </div>
         </div>
     </div>
-    <p>{{new_message}}</p>
 </section>
 </template>
 
@@ -54,7 +54,8 @@ export default {
                 name: '',
                 email: '',
                 message: ''
-            }
+            },
+            message_sent: false
         }
     },
 
@@ -67,6 +68,13 @@ export default {
                 })
                 .catch(error => {
                     this.$data.new_message.name = ''
+                    this.$data.new_message.email = ''
+                    this.$data.new_message.message = ''
+
+                    // Show message when message
+                    // has been sent via toast
+                    var message = "Nous n'avons pas pu envoyer votre message"
+                    M.toast({html: message})
                 })
         }
     }

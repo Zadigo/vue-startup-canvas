@@ -1,29 +1,41 @@
 <template>
-<section class="section section-icons grey lighten-4 center scrollspy" id="apropos">
+<section class="section section-benefits grey lighten-4 center scrollspy" id="apropos">
     <div class="container">
         <div class="row">
-            <div class="col s12 m4">
+            <div v-for="card in cards" v-bind:key="card.icon" class="col s12 m4">
                 <div class="card-panel">
-                    <i class="material-icons large red-text">room</i>
-                    <h4>Pick Where</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, velit.</p>
-                </div>
-            </div>
-            <div class="col s12 m4">
-                <div class="card-panel">
-                    <i class="material-icons large red-text">store</i>
-                    <h4>Travel Shop</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, velit.</p>
-                </div>
-            </div>
-            <div class="col s12 m4">
-                <div class="card-panel">
-                    <i class="material-icons large red-text">airplanemode_active</i>
-                    <h4>Fly Cheap</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, velit.</p>
+                    <i class="material-icons large red-text">{{ card.icon }}</i>
+                    <h4>{{ card.title }}</h4>
+                    <p>{{ card.content }}</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            cards: [
+                {
+                    icon: 'room',
+                    title: 'Pick Where',
+                    content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, velit.'
+                },
+                {
+                    icon: 'store',
+                    title: 'Travel Shop',
+                    content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, velit.'
+                },
+                {
+                    icon: 'airplanemode_active',
+                    title: 'Fly Cheap',
+                    content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, velit.'
+                }
+            ]
+        }
+    }
+}
+</script>
