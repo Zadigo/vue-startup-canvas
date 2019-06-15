@@ -24,23 +24,17 @@
                 </div> -->
             </div>
         </div>
-        <div class="footer-copyright">{{ currentYear }} - Prototype</div>
+        <div class="footer-copyright">{{ getCurrentYear }} - Prototype</div>
     </footer>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            currentYear: '',
+    computed: {
+        getCurrentYear() {
+            var currentDate = new Date()
+            return currentDate.getFullYear()
         }
-    },
-
-    created() {
-        // Get current year
-        var currentDate = new Date()
-        this.$data.currentYear = currentDate.getFullYear()
     }
 }
 </script>
-

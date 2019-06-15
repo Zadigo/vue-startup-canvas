@@ -1,32 +1,14 @@
 <template>
 <div class="col s12 m3 l3">
-    <p>{{first_filter}}</p>
     <div class="card-panel">
         <p>
             <label>
-                <input v-model="first_filter.checked" type="checkbox" name="operative" id="operative">
-                <span>Filter 1</span>
-            </label>
-        </p>
-        <p>
-            <label>
-                <input type="checkbox" name="operative" id="operative">
-                <span>Filter 2</span>
-            </label>
-        </p>
-        <p>
-            <label>
-                <input type="checkbox" name="operative" id="operative">
-                <span>Filter 3</span>
-            </label>
-        </p>
-    </div>
-
-    <div class="card-panel">
-        <p>
-            <label>
-                <input @click="showNonOperative()" type="checkbox" name="operative" id="operative">
-                <span>Operative</span>
+                <input 
+                    :checked="belowSixFoot()"
+                    v-model="dataFilter"
+                    type="checkbox" name="universites" id="universites"
+                >
+                <span>180 cm</span>
             </label>
         </p>
     </div>
@@ -35,20 +17,24 @@
 
 <script>
 export default {
-    props: ['universites'],
-
+    props: ['players'],
     data() {
         return {
-            first_filter: {
-                checked: false,
-                value: 'university'
-            }
+            playersBelowSix: [],
+            dataFilter: false
         }
     },
-
     methods: {
-        getData: function() {
-            this.filteredData = data;
+        // TODO:
+        // A. Get a click even that generates an
+        // $emit to the parent
+        belowSixFoot: function() {
+            if (this.dataFilter) {
+                this.playersBelowSix = this.players.filter(player => player.height < 180)
+                // 1. Generate  an $emit
+                this.$emit('update-players', this.playersBelowSix)
+            }
+            // console.log(this.playersBelowSix)
         }
     }
 }

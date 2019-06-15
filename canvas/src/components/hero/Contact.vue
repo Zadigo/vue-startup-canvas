@@ -76,6 +76,7 @@ export default {
                     var message = "Nous n'avons pas pu envoyer votre message"
                     M.toast({html: message})
                 })
+
         }
     }
 }
